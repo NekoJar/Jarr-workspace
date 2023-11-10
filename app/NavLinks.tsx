@@ -7,7 +7,7 @@ const NavLinks = () => {
   const currentPath = usePathname();
   const links = [
     { label: "About", href: "/about" },
-    { label: "Projects", href: "/projects/list" },
+    { label: "Works", href: "/works/list" },
   ];
 
   return (
