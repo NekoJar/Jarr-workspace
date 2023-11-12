@@ -1,55 +1,31 @@
 "use client";
-import {
-  Button,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  IconButton,
-  Text,
-} from "@radix-ui/themes";
-import Image from "next/image";
-import Link from "next/link";
-import { FaGithub, FaInstagram } from "react-icons/fa";
-import Jar from "@/public/bg-fix.png";
-import ParticleBg from "./components/ParticleBg";
-import Reveal from "./components/utils/Reveal";
+
+import { Container, Flex, Heading } from "@radix-ui/themes";
+import Hero from "./components/Hero";
+import ParticleBg from "./components/utils/ParticleBg";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
+import HorizontalCard from "./components/HorizontalCard";
 
 export default function Home() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+
   return (
-    <>
-      <ParticleBg />
-      <div className="space-y-5 m-14 sm:m-44 bg-opacity-5">
-        <Flex direction="column">
-          <Reveal>
-            <Heading size="5">Hi, I&apos;m Zharfan Hakim</Heading>
-          </Reveal>
-          <Reveal>
-            <Heading size="9" color="red" className="uppercase">
-              Front End Developer
-            </Heading>
-          </Reveal>
-        </Flex>
-
-        <Flex gap="3">
-          <Button variant="surface">
-            <Link href="/about" className="mx-5 font-bold">
-              Get Started
-            </Link>
-          </Button>
-
-          <IconButton color="gray" variant="outline" radius="full">
-            <Link href="https://github.com/NekoJar" target="_blank">
-              <FaGithub />
-            </Link>
-          </IconButton>
-          <IconButton color="gray" variant="outline" radius="full">
-            <Link href="https://instagram.com" target="_blank">
-              <FaInstagram />
-            </Link>
-          </IconButton>
-        </Flex>
+    <div>
+      <div>
+        <div>
+          <ParticleBg />
+          <Container>
+            <Hero />
+          </Container>
+        </div>
+        <HorizontalCard />
       </div>
-    </>
+    </div>
   );
 }

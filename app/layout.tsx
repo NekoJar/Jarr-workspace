@@ -23,9 +23,7 @@ export default function RootLayout({
       <body>
         <Theme appearance="dark" accentColor="red">
           <NavBar />
-          <main>
-            <Container>{children}</Container>
-          </main>
+          <main>{children}</main>
         </Theme>
       </body>
     </html>
