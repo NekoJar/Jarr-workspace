@@ -8,7 +8,7 @@ import { ImEmbed2 } from "react-icons/im";
 
 const NavBar = () => {
   return (
-    <nav className=" px-5 py-3 bg-red-950">
+    <nav className=" px-5 py-3 bg-transparent">
       <Container>
         <Flex justify="between">
           <Flex align="center" gap="3">
