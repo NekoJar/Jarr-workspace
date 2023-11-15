@@ -29,7 +29,7 @@ const Reveal = ({ children, width = "fit-content" }: Props) => {
         }}
         initial="hidden"
         animate="visible"
-        transition={{ duration: 0.5, delay: 0.25 }}
+        transition={{ duration: 1.0, delay: 0.25 }}
       >
         {children}
       </motion.div>
@@ -37,7 +37,7 @@ const Reveal = ({ children, width = "fit-content" }: Props) => {
         variants={{ hidden: { left: 0 }, visible: { left: "100%" } }}
         initial="hidden"
         animate={slideControls}
-        transition={{ duration: 0.5, ease: "easeIn" }}
+        transition={{ duration: 0.75, ease: "easeIn" }}
         style={{
           position: "absolute",
           top: 4,

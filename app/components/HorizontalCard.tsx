@@ -1,3 +1,5 @@
+"use client";
+
 import { Heading, Text } from "@radix-ui/themes";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
@@ -5,12 +7,7 @@ import Reveal from "./utils/Reveal";
 
 const HorizontalCard = () => {
   return (
-    <div className="relative ">
-      <div className="flex h-48 items-center justify-center bg-[var(--red-5)]">
-        <Reveal>
-          <Text className="uppercase text-neutral-200">Works</Text>
-        </Reveal>
-      </div>
+    <div>
       <HorizontalScrollCarousel />
     </div>
   );
@@ -22,7 +19,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-35%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
@@ -41,7 +38,7 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200"
+      className="group relative h-[450px] w-[450px] overflow-hidden bg-[var(--red-10)]"
     >
       <div
         style={{
@@ -52,7 +49,7 @@ const Card = ({ card }: { card: CardType }) => {
         className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
       ></div>
       <div className="absolute inset-0 z-10 grid place-content-center">
-        <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+        <p className=" p-8 text-6xl font-black uppercase text-[var(--red-12)] ">
           {card.title}
         </p>
       </div>
@@ -71,22 +68,22 @@ type CardType = {
 const cards: CardType[] = [
   {
     url: "/imgs/abstract/1.jpg",
-    title: "Title 1",
+    title: "Project 1",
     id: 1,
   },
   {
     url: "/imgs/abstract/2.jpg",
-    title: "Title 2",
+    title: "Project 2",
     id: 2,
   },
   {
     url: "/imgs/abstract/3.jpg",
-    title: "Title 3",
+    title: "Project 3",
     id: 3,
   },
   {
     url: "/imgs/abstract/4.jpg",
-    title: "Title 4",
+    title: "Project 4",
     id: 4,
   },
 ];

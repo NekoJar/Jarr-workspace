@@ -1,30 +1,24 @@
 "use client";
 
 import { Container, Flex, Heading } from "@radix-ui/themes";
-import Hero from "./components/Hero";
+import Hero from "./pages/Hero";
 import ParticleBg from "./components/utils/ParticleBg";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import HorizontalCard from "./components/HorizontalCard";
+import Works from "./pages/Works";
 
 export default function Home() {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
-
   return (
     <div>
       <div>
         <div>
           <ParticleBg />
-          <Container>
+          <Container className=" mt-24 mx-auto px-12 py-4">
             <Hero />
           </Container>
         </div>
-        <HorizontalCard />
+        <Works />
       </div>
     </div>
   );
