@@ -67,7 +67,7 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: "/imgs/abstract/1.jpg",
+    url: "/imgs/abstract/AWT07877.jpg",
     title: "Project 1",
     id: 1,
   },

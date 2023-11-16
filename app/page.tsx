@@ -7,6 +7,7 @@ import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import HorizontalCard from "./components/HorizontalCard";
 import Works from "./pages/Works";
+import AboutSection from "./pages/About";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
             <Hero />
           </Container>
         </div>
+        <AboutSection />
         <Works />
       </div>
     </div>

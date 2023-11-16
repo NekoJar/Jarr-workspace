@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 
 export const links = [
   { label: "About", href: "/#about" },
-  { label: "Works", href: "/#list" },
+  { label: "Works", href: "/#works" },
 ];
 
 const NavBar = () => {
