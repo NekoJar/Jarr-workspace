@@ -8,6 +8,8 @@ import { useRef } from "react";
 import HorizontalCard from "./components/HorizontalCard";
 import Works from "./pages/Works";
 import AboutSection from "./pages/About";
+import AchievementsSection from "./pages/AchievementsSection";
+import Footer from "./pages/Footer";
 
 export default function Home() {
   return (
@@ -19,8 +21,14 @@ export default function Home() {
             <Hero />
           </Container>
         </div>
-        <AboutSection />
+        <Container>
+          <AchievementsSection />
+        </Container>
+        <Container>
+          <AboutSection />
+        </Container>
         <Works />
+        <Footer />
       </div>
     </div>
   );
