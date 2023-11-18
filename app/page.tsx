@@ -10,6 +10,7 @@ import Works from "./pages/Works";
 import AboutSection from "./pages/About";
 import AchievementsSection from "./pages/AchievementsSection";
 import Footer from "./pages/Footer";
+import EmailSection from "./pages/EmailSection";
 
 export default function Home() {
   return (
@@ -21,13 +22,16 @@ export default function Home() {
             <Hero />
           </Container>
         </div>
-        <Container>
+        {/* <Container>
           <AchievementsSection />
-        </Container>
+        </Container> */}
         <Container>
           <AboutSection />
         </Container>
         <Works />
+        <Container>
+          <EmailSection />
+        </Container>
         <Footer />
       </div>
     </div>

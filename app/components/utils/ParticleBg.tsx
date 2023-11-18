@@ -45,23 +45,23 @@ const ParticleBg = () => {
             },
             modes: {
               push: {
-                quantity: 4,
+                quantity: 7,
               },
               repulse: {
-                distance: 50,
+                distance: 100,
                 duration: 0.4,
               },
             },
           },
           particles: {
             color: {
-              value: "#ffffff56",
+              value: "#ffffff18",
             },
             links: {
               color: "#ffffff67",
               distance: 150,
               enable: true,
-              opacity: 0.2,
+              opacity: 0.5,
               width: 1,
             },
             move: {
@@ -82,7 +82,7 @@ const ParticleBg = () => {
               value: 60,
             },
             opacity: {
-              value: 0.5,
+              value: 0.1,
             },
             shape: {
               type: "circle",

@@ -38,7 +38,7 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[450px] w-[450px] overflow-hidden bg-[var(--red-10)]"
+      className="group relative h-[300px] w-[300px] sm:h-[450px] sm:w-[450px] overflow-hidden bg-[var(--red-10)]"
     >
       <div
         style={{
@@ -49,7 +49,7 @@ const Card = ({ card }: { card: CardType }) => {
         className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
       ></div>
       <div className="absolute inset-0 z-10 grid place-content-center">
-        <p className=" p-8 text-6xl font-black uppercase text-[var(--red-12)] ">
+        <p className=" p-8 text-4xl sm:text-6xl font-black uppercase text-[var(--red-12)] ">
           {card.title}
         </p>
       </div>
@@ -67,22 +67,22 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: "/imgs/abstract/AWT07877.jpg",
+    url: "/images/AWT07877.jpg",
     title: "Project 1",
     id: 1,
   },
   {
-    url: "/imgs/abstract/2.jpg",
+    url: "/images/test-img-1.jpg",
     title: "Project 2",
     id: 2,
   },
   {
-    url: "/imgs/abstract/3.jpg",
+    url: "/images/test-img-2.jpg",
     title: "Project 3",
     id: 3,
   },
   {
-    url: "/imgs/abstract/4.jpg",
+    url: "/images/test-img-3.jpg",
     title: "Project 4",
     id: 4,
   },
