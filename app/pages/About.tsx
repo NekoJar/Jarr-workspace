@@ -1,9 +1,11 @@
 "use client";
-import React, { useTransition, useState, SetStateAction } from "react";
+import React, { useTransition, useState, SetStateAction, useRef } from "react";
 import Image from "next/image";
 import TabButton from "../components/TabButton";
 import Reveal from "../components/utils/Reveal";
 import { Container, Text } from "@radix-ui/themes";
+import { useScroll, useTransform, motion } from "framer-motion";
+import Magnetic from "../components/utils/Magnetic";
 
 const TAB_DATA = [
   {
@@ -59,14 +61,16 @@ const AboutSection = () => {
         </Reveal>
       </div>
       <Container>
-        <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-          <Image
-            src="/images/about-image.png"
-            width={500}
-            height={500}
-            alt="about-img"
-            className="relative"
-          />
+        <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-8 xl:gap-16 sm:py-16 xl:px-16 sm:px-4">
+          <Magnetic>
+            <Image
+              src="/images/about-img.png"
+              width={500}
+              height={500}
+              alt="about-img"
+              className="relative"
+            />
+          </Magnetic>
           <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
             <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
             <p className="text-base lg:text-lg">

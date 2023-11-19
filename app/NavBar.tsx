@@ -3,11 +3,13 @@
 import { Container, Flex, Heading } from "@radix-ui/themes";
 import Link from "next/link";
 import React, { useState } from "react";
-import NavLinks from "./NavLinks";
+import NavLinks from "./components/NavLinks";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { ImEmbed2 } from "react-icons/im";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
+import MenuOverlay from "./components/MenuOverlay";
+import Magnetic from "./components/utils/Magnetic";
 
 export const links = [
   { label: "About", href: "/#about" },
@@ -49,21 +51,24 @@ const NavBar = () => {
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {links.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={classNames({
-                    "!text-red-400": link.href === currentPath,
-                    "nav-link": true,
-                    block: true,
-                  })}
-                >
-                  {link.label}
-                </Link>
+                <Magnetic>
+                  <Link
+                    href={link.href}
+                    className={classNames({
+                      "!text-red-400": link.href === currentPath,
+                      "nav-link": true,
+                      block: true,
+                    })}
+                  >
+                    {link.label}
+                  </Link>
+                </Magnetic>
               </li>
             ))}
           </ul>
         </div>
       </Flex>
+      {navbarOpen ? <MenuOverlay links={links} /> : null}
     </nav>
   );
 };

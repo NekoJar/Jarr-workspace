@@ -20,9 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-neutral-900">
         <Theme appearance="dark" accentColor="red">
-          <NavBar />
           <main>{children}</main>
         </Theme>
       </body>
