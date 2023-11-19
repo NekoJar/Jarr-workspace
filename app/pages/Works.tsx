@@ -15,11 +15,6 @@ const Works = () => {
         </Reveal>
       </div>
       <HorizontalCard />
-      <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
-        <Reveal>
-          <Text className="uppercase text-[var(--red-11)] text-2xl">Works</Text>
-        </Reveal>
-      </div>
     </>
   );
 };

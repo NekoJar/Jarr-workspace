@@ -25,13 +25,13 @@ export default function Home() {
         {/* <Container>
           <AchievementsSection />
         </Container> */}
-        <Container>
-          <AboutSection />
-        </Container>
+
+        <AboutSection />
+
         <Works />
-        <Container>
-          <EmailSection />
-        </Container>
+
+        <EmailSection />
+
         <Footer />
       </div>
     </div>

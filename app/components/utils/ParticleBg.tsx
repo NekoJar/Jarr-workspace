@@ -34,7 +34,7 @@ const ParticleBg = () => {
           interactivity: {
             events: {
               onClick: {
-                enable: true,
+                enable: false,
                 mode: "push",
               },
               onHover: {
@@ -79,7 +79,7 @@ const ParticleBg = () => {
                 enable: true,
                 area: 1200,
               },
-              value: 60,
+              value: 80,
             },
             opacity: {
               value: 0.1,
