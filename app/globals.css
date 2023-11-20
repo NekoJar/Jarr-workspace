@@ -17,3 +17,47 @@ body {
     @apply text-neutral-300 hover:text-red-200 transition-colors;
   }
 }
+
+@keyframes pulse {
+  0% {
+    border-color: rgb(254, 136, 159);
+  }
+  50% {
+    border-color: pink;
+  }
+  100% {
+    border-color: rgb(254, 136, 159);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 3s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border-image-source: linear-gradient(
+      to right,
+      #f00,
+      #ff69b4
+    ); /* Red to Pink */
+  }
+  100% {
+    transform: rotate(360deg);
+    border-image-source: linear-gradient(
+      to right,
+      #f00,
+      #ff69b4
+    ); /* Red to Pink */
+  }
+}
+
+@keyframes gradientSpin {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

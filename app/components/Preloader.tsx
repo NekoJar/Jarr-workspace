@@ -58,7 +58,7 @@ export default function Preloader() {
       variants={slideUp}
       initial="initial"
       exit="exit"
-      className="h-[100vh] w-[100vw] fixed flex items-center justify-center z-[99] bg-red-400"
+      className="h-[100vh] w-[100vw] fixed flex items-center justify-center z-[99] bg-[var(--red-5)]"
     >
       {dimension.width > 0 && (
         <>
@@ -76,7 +76,7 @@ export default function Preloader() {
               variants={curve}
               initial="initial"
               exit="exit"
-              className="fill-current text-red-400"
+              className="fill-current text-[var(--red-5)]"
             ></motion.path>
           </svg>
         </>

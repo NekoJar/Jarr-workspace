@@ -55,13 +55,13 @@ const AboutSection = () => {
 
   return (
     <section className="text-white relative bg-neutral-900" id="about">
-      <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
+      {/* <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
         <Reveal>
           <Text className="uppercase text-[var(--red-11)] text-2xl">About</Text>
         </Reveal>
-      </div>
+      </div> */}
       <Container>
-        <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-8 xl:gap-16 sm:py-16 xl:px-16 sm:px-4">
+        <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-8 xl:gap-16 sm:py-36 xl:px-16 sm:px-4">
           <Magnetic>
             <Image
               src="/images/about-img.png"
@@ -72,7 +72,9 @@ const AboutSection = () => {
             />
           </Magnetic>
           <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-            <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary-500 to-secondary-500  mb-4">
+              About Me
+            </h2>
             <p className="text-base lg:text-lg">
               I am a full stack web developer with a passion for creating
               interactive and responsive web applications. I have experience

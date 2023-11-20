@@ -4,6 +4,7 @@ import { Heading, Text } from "@radix-ui/themes";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import Reveal from "./utils/Reveal";
+import Link from "next/link";
 
 const HorizontalCard = () => {
   return (
@@ -40,19 +41,21 @@ const Card = ({ card }: { card: CardType }) => {
       key={card.id}
       className="group relative h-[300px] w-[300px] sm:h-[450px] sm:w-[450px] overflow-hidden bg-[var(--red-10)]"
     >
-      <div
-        style={{
-          backgroundImage: `url(${card.url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-      ></div>
-      <div className="absolute inset-0 z-10 grid place-content-center">
-        <p className=" p-8 text-4xl sm:text-6xl font-black uppercase text-[var(--red-12)] ">
-          {card.title}
-        </p>
-      </div>
+      <Link href={card.href} target="_blank">
+        <div
+          style={{
+            backgroundImage: `url(${card.url})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
+        ></div>
+        <div className="absolute inset-0  z-10 grid place-content-center">
+          <p className=" p-8 text-2xl  font-medium  uppercase text-[var(--red-11)] bg-[var(--red-5)]">
+            {card.title}
+          </p>
+        </div>
+      </Link>
     </div>
   );
 };
@@ -63,27 +66,32 @@ type CardType = {
   url: string;
   title: string;
   id: number;
+  href: string;
 };
 
 const cards: CardType[] = [
   {
-    url: "/images/AWT07877.jpg",
-    title: "Project 1",
+    url: "/images/project-1.png",
+    title: "Restaurant App",
     id: 1,
+    href: "https://freadbear-family-dinner.netlify.app/",
   },
   {
-    url: "/images/test-img-1.jpg",
-    title: "Project 2",
+    url: "/images/project-2.png",
+    title: "E-commerce App",
     id: 2,
+    href: "https://https://luxevibe.netlify.app/",
   },
   {
     url: "/images/test-img-2.jpg",
     title: "Project 3",
     id: 3,
+    href: "",
   },
   {
     url: "/images/test-img-3.jpg",
     title: "Project 4",
     id: 4,
+    href: "",
   },
 ];
