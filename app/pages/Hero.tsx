@@ -32,7 +32,7 @@ const Hero = () => {
   // Your logic for rendering based on windowWidth
   const renderText = windowWidth > 768;
   return (
-    <section className="sm:pb-48 pb-0  z-20">
+    <section className="sm:pb-48 pb-20 pt-24 sm:pt-0  z-20">
       <div className="grid grid-cols-1 sm:grid-cols-12  ">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -45,7 +45,7 @@ const Hero = () => {
               Hello, I&apos;m{" "}
             </Text>
             <br></br>
-            <h1 className="text-transparent bg-clip-text bg-[var(--red-9)] text-xl sm:text-5xl lg:text-[4.25rem] sm:py-2 py-0 font-extrabold">
+            <h1 className="text-transparent bg-clip-text bg-[var(--red-11)] text-xl sm:text-5xl lg:text-[4.25rem] sm:py-2 py-0 font-extrabold">
               <TypeAnimation
                 sequence={[
                   "Zharfan Hakim",
@@ -69,7 +69,7 @@ const Hero = () => {
           <div className="relative pb-8 sm:pb-0 ">
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full sm:mr-4 mr-0 bg-[var(--red-9)] hover:bg-[var(--red-8)] text-white sm:text-base text-sm"
+              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full sm:mr-4 mr-0 bg-[var(--red-7)] hover:bg-[var(--red-8)] text-[var(--red-11)] sm:text-base text-sm"
             >
               Hire Me
             </Link>
