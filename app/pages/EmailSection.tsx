@@ -9,57 +9,57 @@ import { Container, Text } from "@radix-ui/themes";
 import { motion, useScroll, useTransform } from "framer-motion";
 import toast from "react-hot-toast";
 
-import { sendEmail } from "../api/send/sendEmail";
 import { useFormStatus } from "react-dom";
 import SubmitBtn from "./SubmitBtn";
+import { sendEmail } from "../api/send/sendEmail";
 
-interface EmailData {
-  email: string;
-  subject: string;
-  message: string;
-}
+// interface EmailData {
+//   email: string;
+//   subject: string;
+//   message: string;
+// }
 
 const EmailSection: React.FC = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  // const [emailSubmitted, setEmailSubmitted] = useState(false);
 
-  const handleSubmit = async (e: SyntheticEvent) => {
-    e.preventDefault();
-    const target = e.target as typeof e.target & {
-      email: { value: string };
-      subject: { value: string };
-      message: { value: string };
-    };
+  // const handleSubmit = async (e: SyntheticEvent) => {
+  //   e.preventDefault();
+  //   const target = e.target as typeof e.target & {
+  //     email: { value: string };
+  //     subject: { value: string };
+  //     message: { value: string };
+  //   };
 
-    const data: EmailData = {
-      email: target.email.value,
-      subject: target.subject.value,
-      message: target.message.value,
-    };
+  //   const data: EmailData = {
+  //     email: target.email.value,
+  //     subject: target.subject.value,
+  //     message: target.message.value,
+  //   };
 
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
+  //   const JSONdata = JSON.stringify(data);
+  //   const endpoint = "/api/send";
 
-    // Form the request for sending data to the server.
-    const options: RequestInit = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
+  //   // Form the request for sending data to the server.
+  //   const options: RequestInit = {
+  //     // The method is POST because we are sending data.
+  //     method: "POST",
+  //     // Tell the server we're sending JSON.
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     // Body of the request is the JSON data we created above.
+  //     body: JSONdata,
+  //   };
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-    console.log(resData);
+  //   const response = await fetch(endpoint, options);
+  //   const resData = await response.json();
+  //   console.log(resData);
 
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
-    }
-  };
+  //   if (response.status === 200) {
+  //     console.log("Message sent.");
+  //     setEmailSubmitted(true);
+  //   }
+  // };
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -112,42 +112,52 @@ const EmailSection: React.FC = () => {
               </div>
             </div>
             <div>
-              {emailSubmitted ? (
-                <p className="text-green-500 text-sm mt-2">
-                  Email sent successfully!
-                </p>
-              ) : (
-                <form
-                  className="mt-10 sm:mt-0 flex flex-col dark:text-black"
-                  action={async (formData) => {
-                    const { data, error } = await sendEmail(formData);
+              <form
+                className="mt-10 sm:mt-0 flex flex-col dark:text-black"
+                action={async (formData) => {
+                  const { data, error } = await sendEmail(formData);
 
-                    if (error) {
-                      toast.error(error);
-                      return;
-                    }
+                  if (error) {
+                    toast.error(error);
+                    return;
+                  }
 
-                    toast.success("Email sent successfully!");
-                  }}
-                >
+                  toast.success("Email sent successfully!");
+                }}
+              >
+                <div className="mb-6">
+                  <label
+                    htmlFor="email"
+                    className="text-white block mb-2 text-sm font-medium"
+                  >
+                    Your email
+                  </label>
                   <input
-                    className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+                    className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 transition-all"
                     name="senderEmail"
                     type="email"
                     required
                     maxLength={500}
                     placeholder="Your email"
                   />
+                </div>
+                <div className="mb-6">
+                  <label
+                    htmlFor="messages"
+                    className="text-white block text-sm mb-2 font-medium"
+                  >
+                    Messages
+                  </label>
                   <textarea
-                    className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+                    className="h-52  bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 transition-all"
                     name="message"
                     placeholder="Your message"
                     required
                     maxLength={5000}
                   />
-                  <SubmitBtn />
-                </form>
-              )}
+                </div>
+                <SubmitBtn />
+              </form>
             </div>
           </section>
         </Container>

@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="lg:pb-16 z-20">
+    <section className="lg:pb-16 pb-16 z-20">
       <div className="grid grid-cols-1 sm:grid-cols-12 ">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -45,7 +45,7 @@ const Hero = () => {
             School of computing undergraduate student at Telkom University.
             Proficient in NextJS, TypeScript, TailwindCSS, and more.
           </p>
-          <div className="relative">
+          <div className="relative pb-8 sm:pb-0 ">
             <Link
               href="/#contact"
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"

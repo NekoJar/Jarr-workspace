@@ -4,7 +4,15 @@ import { Heading, Text } from "@radix-ui/themes";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import Reveal from "./utils/Reveal";
+import GithubIcon from "../../public/github-icon.svg";
 import Link from "next/link";
+import {
+  Card as NextCard,
+  CardHeader,
+  CardBody,
+  Image,
+} from "@nextui-org/react";
+import { FaGithub } from "react-icons/fa";
 
 const HorizontalCard = () => {
   return (
@@ -20,7 +28,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
@@ -39,24 +47,58 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[300px] w-[300px] sm:h-[450px] sm:w-[450px] overflow-hidden bg-[var(--red-10)]"
+      className="group relative h-[400px] sm:h-[420px] w-[300px] sm:w-[350px] rounded-xl overflow-hidden bg-[var(--red-6)]"
     >
-      <Link href={card.href} target="_blank">
-        <div
-          style={{
-            backgroundImage: `url(${card.url})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-        ></div>
-        <div className="absolute inset-0  z-10 grid place-content-center">
-          <p className=" p-8 text-2xl  font-medium  uppercase text-[var(--red-11)] bg-[var(--red-5)]">
-            {card.title}
-          </p>
-        </div>
-      </Link>
+      <NextCard className="py-4 ">
+        <CardHeader className="pb-0 pt-2 px-4  items-start justify-between text-[var(--red-12)]">
+          <div className="flex-col">
+            <p className="text-tiny uppercase font-bold">{card.title}</p>
+            <small className="text-default-500">12 Tracks</small>
+            <h4 className="font-bold text-large">{card.title}</h4>
+          </div>
+          <div>
+            <Link
+              href="https://github.com/NekoJar"
+              target="_blank"
+              className="text-3xl hover:text-neutral-900 transition-colors duration-300"
+            >
+              <FaGithub />
+            </Link>
+          </div>
+        </CardHeader>
+        <Link href={card.href} target="_blank">
+          <CardBody className="overflow-visible p-4">
+            <Image
+              alt={card.title}
+              className="object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+              src={card.url}
+              width={300}
+              height={300}
+            />
+          </CardBody>
+        </Link>
+      </NextCard>
     </div>
+    // <div
+    //   key={card.id}
+    //   className="group relative h-[300px] w-[300px] sm:h-[450px] sm:w-[450px] overflow-hidden bg-[var(--red-10)]"
+    // >
+    //   <Link href={card.href} target="_blank">
+    //     <div
+    //       style={{
+    //         backgroundImage: `url(${card.url})`,
+    //         backgroundSize: "cover",
+    //         backgroundPosition: "center",
+    //       }}
+    //       className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
+    //     ></div>
+    //     <div className="absolute inset-0  z-10 grid place-content-center">
+    //       <p className=" p-8 text-2xl  font-medium  uppercase text-[var(--red-11)] bg-[var(--red-5)]">
+    //         {card.title}
+    //       </p>
+    //     </div>
+    //   </Link>
+    // </div>
   );
 };
 
@@ -67,31 +109,37 @@ type CardType = {
   title: string;
   id: number;
   href: string;
+  text: string;
 };
 
 const cards: CardType[] = [
   {
     url: "/images/project-1.png",
-    title: "Restaurant App",
+    title: "Portofolio",
     id: 1,
-    href: "https://freadbear-family-dinner.netlify.app/",
+    href: "https://jarrworkspace.vercel.app/",
+    text: "Jarrworkspace",
   },
   {
     url: "/images/project-2.png",
     title: "E-commerce App",
     id: 2,
     href: "https://https://luxevibe.netlify.app/",
+    text: "LuxeVibe",
   },
+  {
+    url: "/images/project-3.png",
+    title: "Restaurant App",
+    id: 3,
+    href: "https://freadbear-family-dinner.netlify.app/",
+    text: "Freadbear's Family Diner",
+  },
+
   {
     url: "/images/test-img-2.jpg",
     title: "Project 3",
-    id: 3,
-    href: "",
-  },
-  {
-    url: "/images/test-img-3.jpg",
-    title: "Project 4",
     id: 4,
     href: "",
+    text: "Issue-trackr",
   },
 ];

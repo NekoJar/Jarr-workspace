@@ -1,5 +1,11 @@
 "use client";
-import React, { useTransition, useState, SetStateAction, useRef } from "react";
+import React, {
+  useTransition,
+  useState,
+  SetStateAction,
+  useRef,
+  useEffect,
+} from "react";
 import Image from "next/image";
 import TabButton from "../components/TabButton";
 import Reveal from "../components/utils/Reveal";
@@ -53,13 +59,39 @@ const AboutSection = () => {
     });
   };
 
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    // Function to update window width
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Initial window width
+    setWindowWidth(window.innerWidth);
+
+    // Event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array means this effect will only run once on mount
+
+  // Your logic for rendering based on windowWidth
+  const renderText = windowWidth <= 600;
   return (
     <section className="text-white relative bg-neutral-900" id="about">
-      {/* <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
-        <Reveal>
-          <Text className="uppercase text-[var(--red-11)] text-2xl">About</Text>
-        </Reveal>
-      </div> */}
+      {renderText && (
+        <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
+          <Reveal>
+            <Text className=" uppercase text-[var(--red-11)] text-2xl">
+              About
+            </Text>
+          </Reveal>
+        </div>
+      )}
       <Container>
         <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-8 xl:gap-16 sm:py-36 xl:px-16 sm:px-4">
           <Magnetic>
