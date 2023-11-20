@@ -36,30 +36,27 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <div>
-        <NavBar />
-        <div>
-          <AnimatePresence mode="wait">
-            {isLoading && <Preloader />}
-          </AnimatePresence>
-          {/* <ParticleBg /> */}
-          <Container className=" mt-24 mx-auto px-12 py-4">
-            <Hero />
-          </Container>
-        </div>
-        {/* <Container>
+    <>
+      <NavBar />
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader />}
+      </AnimatePresence>
+      {/* <ParticleBg /> */}
+      <Container className=" mt-24 mx-auto px-12 py-4">
+        <Hero />
+      </Container>
+
+      {/* <Container>
           <AchievementsSection />
         </Container> */}
 
-        <AboutSection />
+      <AboutSection />
 
-        <Works />
+      <Works />
 
-        <EmailSection />
+      <EmailSection />
 
-        <Footer />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }

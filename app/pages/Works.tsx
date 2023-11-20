@@ -27,7 +27,7 @@ const Works = () => {
       </div>
       <HorizontalCard />
       <motion.div style={{ height }} className="relative mt-[100px]">
-        <div className="absolute z-1 h-[1550%] w-[120%] left-[-10%] bg-neutral-900 shadow-2xl rounded-b-full"></div>
+        <div className="absolute z-1 h-[1550%] w-[100%] left-[-10%] bg-neutral-900 shadow-2xl rounded-b-full"></div>
       </motion.div>
     </>
   );

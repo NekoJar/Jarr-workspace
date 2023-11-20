@@ -1,8 +1,8 @@
 "use client";
 
 import { Heading, Text } from "@radix-ui/themes";
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { motion, useTransform, useScroll, MotionStyle } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./utils/Reveal";
 import GithubIcon from "../../public/github-icon.svg";
 import Link from "next/link";
@@ -23,17 +23,45 @@ const HorizontalCard = () => {
 };
 
 const HorizontalScrollCarousel = () => {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    // Function to update window width
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Initial window width
+    setWindowWidth(window.innerWidth);
+
+    // Event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array means this effect will only run once on mount
+
+  // Your logic for rendering based on windowWidth
+  const renderText = windowWidth <= 600;
+
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    renderText ? ["1%", "-120%"] : ["1%", "-75%"]
+  );
 
+  const motionStyle: MotionStyle = { x };
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
+        <motion.div style={motionStyle} className="flex gap-4">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
           })}
@@ -47,7 +75,7 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[400px] sm:h-[420px] w-[300px] sm:w-[350px] rounded-xl overflow-hidden bg-[var(--red-6)]"
+      className="group relative h-[400px] sm:h-[450px] w-[300px] sm:w-[350px] rounded-xl overflow-hidden bg-[var(--red-6)]"
     >
       <NextCard className="py-4 ">
         <CardHeader className="pb-0 pt-2 px-4  items-start justify-between text-[var(--red-12)]">

@@ -2,16 +2,38 @@
 import { Flex, Heading, Button, IconButton, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaGithub, FaInstagram } from "react-icons/fa";
 import Reveal from "../components/utils/Reveal";
 import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 
 const Hero = () => {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    // Function to update window width
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Initial window width
+    setWindowWidth(window.innerWidth);
+
+    // Event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array means this effect will only run once on mount
+
+  // Your logic for rendering based on windowWidth
+  const renderText = windowWidth > 768  ;
   return (
-    <section className="lg:pb-16 pb-16 z-20">
-      <div className="grid grid-cols-1 sm:grid-cols-12 ">
+    <section className="sm:pb-16 pb-0  z-20">
+      <div className="grid grid-cols-1 sm:grid-cols-12  ">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -19,11 +41,11 @@ const Hero = () => {
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
           <div className="relative mb-4  lg:leading-normal ">
-            <Heading className="text-white bg-clip-text ">
+            <Text className="text-white bg-clip-text text-md sm:text-xl font-extrabold ">
               Hello, I&apos;m{" "}
-            </Heading>
+            </Text>
             <br></br>
-            <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-primary-500 to-secondary-500 text-4xl sm:text-5xl lg:text-[4.25rem] py-2 font-extrabold">
+            <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-primary-500 to-secondary-500 text-xl sm:text-5xl lg:text-[4.25rem] sm:py-2 py-0 font-extrabold">
               <TypeAnimation
                 sequence={[
                   "Zharfan Hakim",
@@ -41,14 +63,14 @@ const Hero = () => {
               />
             </h1>
           </div>
-          <p className="text-[#ADB7BE] text-base sm:text-m mb-6 lg:text-lg">
+          <p className="text-[#ADB7BE] text-s sm:text-m mb-6 lg:text-lg">
             School of computing undergraduate student at Telkom University.
             Proficient in NextJS, TypeScript, TailwindCSS, and more.
           </p>
           <div className="relative pb-8 sm:pb-0 ">
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
+              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full sm:mr-4 mr-0 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white sm:text-base text-sm"
             >
               Hire Me
             </Link>
@@ -69,15 +91,17 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
-          <div className="rounded-full border-4 animate-pulse bg-[#1818187e] w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
-            <Image
-              src="/images/hero-img.png"
-              alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={300}
-              height={300}
-            />
-          </div>
+          {renderText && (
+            <div className="rounded-full border-4 animate-pulse bg-[#1818187e] w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
+              <Image
+                src="/images/hero-img.png"
+                alt="hero image"
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                width={300}
+                height={300}
+              />
+            </div>
+          )}
         </motion.div>
       </div>
     </section>

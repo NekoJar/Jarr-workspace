@@ -30,11 +30,12 @@ export default function ContactFormEmail({
           <Container>
             <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
               <Heading className="leading-tight">
-                You received the following message from the contact form
+                You received the following message from {senderEmail}
               </Heading>
+              <Text className="text-bold">New Message!</Text>
+              <br></br>
               <Text>{message}</Text>
               <Hr />
-              <Text>The sender&apos;s email is: {senderEmail}</Text>
             </Section>
           </Container>
         </Body>

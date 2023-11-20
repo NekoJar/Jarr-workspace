@@ -23,7 +23,7 @@ const NavBar = () => {
   const currentPath = usePathname();
 
   return (
-    <nav className=" mx-auto top-0 left-0 right-0 z-10 pt-16 px-16 bg-transparent">
+    <nav className=" fixed sm:relative mx-auto top-0 left-0 right-0 z-10 p-4 sm:p-0 sm:pt-16 sm:px-16 sm:border-0 border border-[#33353F] sm:bg-transparent bg-neutral-900 bg-opacity-100">
       <Flex justify="between">
         <Flex align="center" gap="3">
           <Link href="/">

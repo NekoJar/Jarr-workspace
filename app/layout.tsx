@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-neutral-900">
         <Theme appearance="dark" accentColor="red">
-          <Toaster position="top-right" />
+          <Toaster position="top-center" />
           <main>{children}</main>
         </Theme>
       </body>
