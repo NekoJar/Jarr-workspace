@@ -7,6 +7,11 @@ import Image from "next/image";
 import Reveal from "../components/utils/Reveal";
 import { Container, Text } from "@radix-ui/themes";
 import { motion, useScroll, useTransform } from "framer-motion";
+import toast from "react-hot-toast";
+
+import { sendEmail } from "../api/send/sendEmail";
+import { useFormStatus } from "react-dom";
+import SubmitBtn from "./SubmitBtn";
 
 interface EmailData {
   email: string;
@@ -65,6 +70,8 @@ const EmailSection: React.FC = () => {
   const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
 
+  const { pending } = useFormStatus();
+
   return (
     <motion.div style={{ y }} ref={container}>
       <div className="relative  bg-neutral-900">
@@ -110,59 +117,35 @@ const EmailSection: React.FC = () => {
                   Email sent successfully!
                 </p>
               ) : (
-                <form className="flex flex-col" onSubmit={handleSubmit}>
-                  <div className="mb-6">
-                    <label
-                      htmlFor="email"
-                      className="text-white block mb-2 text-sm font-medium"
-                    >
-                      Your email
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      id="email"
-                      required
-                      className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                      placeholder="john@doe.com"
-                    />
-                  </div>
-                  <div className="mb-6">
-                    <label
-                      htmlFor="subject"
-                      className="text-white block text-sm mb-2 font-medium"
-                    >
-                      Subject
-                    </label>
-                    <input
-                      name="subject"
-                      type="text"
-                      id="subject"
-                      required
-                      className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                      placeholder="Just saying hi"
-                    />
-                  </div>
-                  <div className="mb-6">
-                    <label
-                      htmlFor="message"
-                      className="text-white block text-sm mb-2 font-medium"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      id="message"
-                      className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                      placeholder="Let's talk about..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
-                  >
-                    Send Message
-                  </button>
+                <form
+                  className="mt-10 sm:mt-0 flex flex-col dark:text-black"
+                  action={async (formData) => {
+                    const { data, error } = await sendEmail(formData);
+
+                    if (error) {
+                      toast.error(error);
+                      return;
+                    }
+
+                    toast.success("Email sent successfully!");
+                  }}
+                >
+                  <input
+                    className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+                    name="senderEmail"
+                    type="email"
+                    required
+                    maxLength={500}
+                    placeholder="Your email"
+                  />
+                  <textarea
+                    className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+                    name="message"
+                    placeholder="Your message"
+                    required
+                    maxLength={5000}
+                  />
+                  <SubmitBtn />
                 </form>
               )}
             </div>
