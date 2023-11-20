@@ -30,9 +30,9 @@ const Hero = () => {
   }, []); // Empty dependency array means this effect will only run once on mount
 
   // Your logic for rendering based on windowWidth
-  const renderText = windowWidth > 768  ;
+  const renderText = windowWidth > 768;
   return (
-    <section className="sm:pb-16 pb-0  z-20">
+    <section className="sm:pb-48 pb-0  z-20">
       <div className="grid grid-cols-1 sm:grid-cols-12  ">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -45,14 +45,12 @@ const Hero = () => {
               Hello, I&apos;m{" "}
             </Text>
             <br></br>
-            <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-primary-500 to-secondary-500 text-xl sm:text-5xl lg:text-[4.25rem] sm:py-2 py-0 font-extrabold">
+            <h1 className="text-transparent bg-clip-text bg-[var(--red-9)] text-xl sm:text-5xl lg:text-[4.25rem] sm:py-2 py-0 font-extrabold">
               <TypeAnimation
                 sequence={[
                   "Zharfan Hakim",
                   1000,
                   "Fullstack Developer",
-                  1000,
-                  "Mobile Developer",
                   1000,
                   "UI/UX Designer",
                   1000,
@@ -64,13 +62,14 @@ const Hero = () => {
             </h1>
           </div>
           <p className="text-[#ADB7BE] text-s sm:text-m mb-6 lg:text-lg">
-            School of computing undergraduate student at Telkom University.
-            Proficient in NextJS, TypeScript, TailwindCSS, and more.
+            I am an undergraduate student at the School of Computing at Telkom
+            University. I specialize in NextJS, TypeScript, TailwindCSS, and
+            more.
           </p>
           <div className="relative pb-8 sm:pb-0 ">
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full sm:mr-4 mr-0 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white sm:text-base text-sm"
+              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full sm:mr-4 mr-0 bg-[var(--red-9)] hover:bg-[var(--red-8)] text-white sm:text-base text-sm"
             >
               Hire Me
             </Link>
@@ -92,7 +91,7 @@ const Hero = () => {
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
           {renderText && (
-            <div className="rounded-full border-4 animate-pulse bg-[#1818187e] w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
+            <div className="rounded-full border-[6px] animate-pulse bg-[#1818187e] w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
               <Image
                 src="/images/hero-img.png"
                 alt="hero image"

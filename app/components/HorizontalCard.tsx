@@ -78,15 +78,21 @@ const Card = ({ card }: { card: CardType }) => {
       className="group relative h-[400px] sm:h-[450px] w-[300px] sm:w-[350px] rounded-xl overflow-hidden bg-[var(--red-6)]"
     >
       <NextCard className="py-4 ">
-        <CardHeader className="pb-0 pt-2 px-4  items-start justify-between text-[var(--red-12)]">
+        <CardHeader className="pb-0 pt-2 px-4  items-start justify-between ">
           <div className="flex-col">
-            <p className="text-tiny uppercase font-bold">{card.title}</p>
-            <small className="text-default-500">12 Tracks</small>
-            <h4 className="font-bold text-large">{card.title}</h4>
+            <p className="text-tiny uppercase font-bold text-white">
+              {card.title}
+            </p>
+            <h4 className="font-bold text-large text-[var(--red-12)]">
+              {card.text}
+            </h4>
+            <small className="text-default-500 text-[var(--red-11)]">
+              {card.languages.join(", ")}
+            </small>
           </div>
           <div>
             <Link
-              href="https://github.com/NekoJar"
+              href={card.github}
               target="_blank"
               className="text-3xl hover:text-neutral-900 transition-colors duration-300"
             >
@@ -138,6 +144,8 @@ type CardType = {
   id: number;
   href: string;
   text: string;
+  github: string;
+  languages: string[];
 };
 
 const cards: CardType[] = [
@@ -147,6 +155,8 @@ const cards: CardType[] = [
     id: 1,
     href: "https://jarrworkspace.vercel.app/",
     text: "Jarrworkspace",
+    github: "https://github.com/NekoJar/Jarr-workspace",
+    languages: ["Typescript", "NextJS", "Framer Motion"],
   },
   {
     url: "/images/project-2.png",
@@ -154,6 +164,8 @@ const cards: CardType[] = [
     id: 2,
     href: "https://https://luxevibe.netlify.app/",
     text: "LuxeVibe",
+    github: "https://github.com/NekoJar/LuxeVibe",
+    languages: ["Typescript", "React", "Firebase", "Stripe"],
   },
   {
     url: "/images/project-3.png",
@@ -161,13 +173,17 @@ const cards: CardType[] = [
     id: 3,
     href: "https://freadbear-family-dinner.netlify.app/",
     text: "Freadbear's Family Diner",
+    github: "https://github.com/NekoJar/fast-pizza",
+    languages: ["Javascript", "React", "Supabase"],
   },
 
   {
-    url: "/images/test-img-2.jpg",
-    title: "Project 3",
+    url: "/images/project-4.png",
+    title: "Tracker App",
     id: 4,
-    href: "",
+    href: "https://github.com/NekoJar/issue-trackr",
     text: "Issue-trackr",
+    github: "https://github.com/NekoJar/issue-trackr",
+    languages: ["Typescript", "NextJS", "mySql", "Prisma"],
   },
 ];

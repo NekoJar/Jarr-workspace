@@ -28,13 +28,13 @@ body {
 
 @keyframes pulse {
   0% {
-    border-color: rgb(254, 136, 159);
+    border-color: var(--red-7);
   }
   50% {
-    border-color: pink;
+    border-color: var(--red-11);
   }
   100% {
-    border-color: rgb(254, 136, 159);
+    border-color: var(--red-7);
   }
 }
 

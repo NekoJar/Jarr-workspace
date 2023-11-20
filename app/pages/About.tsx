@@ -19,11 +19,11 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li>Node.js</li>
-        <li>TypeScript</li>
-        <li>PostgreSQL</li>
         <li>Next.js</li>
-        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>Tailwind CSS</li>
+        <li>Supabase</li>
+        <li>Node.js</li>
         <li>React</li>
       </ul>
     ),
@@ -37,17 +37,18 @@ const TAB_DATA = [
       </ul>
     ),
   },
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
-      </ul>
-    ),
-  },
 ];
+//   {
+//     title: "Certifications",
+//     id: "certifications",
+//     content: (
+//       <ul className="list-disc pl-2">
+//         <li>AWS Cloud Practitioner</li>
+//         <li>Google Professional Cloud Developer</li>
+//       </ul>
+//     ),
+//   },
+// ];
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
@@ -82,7 +83,7 @@ const AboutSection = () => {
   // Your logic for rendering based on windowWidth
   const renderText = windowWidth <= 600;
   return (
-    <section className="text-white relative bg-neutral-900" id="about">
+    <section className="text-white relative bg-neutral-950" id="about">
       {renderText && (
         <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
           <Reveal>
@@ -104,17 +105,17 @@ const AboutSection = () => {
             />
           </Magnetic>
           <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary-500 to-secondary-500  mb-4">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-[var(--red-9)]  mb-4">
               About Me
             </h2>
             <p className="text-base lg:text-lg">
               I am a full stack web developer with a passion for creating
               interactive and responsive web applications. I have experience
-              working with JavaScript, React, Redux, Node.js, Express,
-              PostgreSQL, Next.js, HTML, CSS, and Git. I am a quick learner and
-              I am always looking to expand my knowledge and skill set. I am a
-              team player and I am excited to work with others to create amazing
-              applications.
+              working with JavaScript, TypeScript, React, Redux, Node.js,
+              Firebase, Supabase, PostgreSQL, MySql, Next.js, HTML, CSS, and
+              Git. I am a quick learner and I am always looking to expand my
+              knowledge and skill set. I am a team player and I am excited to
+              work with others to create amazing applications.
             </p>
             <div className="flex flex-row justify-start mt-8">
               <TabButton
@@ -131,13 +132,13 @@ const AboutSection = () => {
                 {" "}
                 Education{" "}
               </TabButton>
-              <TabButton
+              {/* <TabButton
                 selectTab={() => handleTabChange("certifications")}
                 active={tab === "certifications"}
               >
                 {" "}
                 Certifications{" "}
-              </TabButton>
+              </TabButton> */}
             </div>
             <div className="mt-8">
               {TAB_DATA.find((t) => t.id === tab)!.content}

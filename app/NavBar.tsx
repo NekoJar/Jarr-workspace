@@ -10,6 +10,8 @@ import classNames from "classnames";
 import { usePathname } from "next/navigation";
 import MenuOverlay from "./components/MenuOverlay";
 import Magnetic from "./components/utils/Magnetic";
+import logo from "../public/logo.svg";
+import Image from "next/image";
 
 export const links = [
   { label: "About", href: "/#about" },
@@ -23,12 +25,14 @@ const NavBar = () => {
   const currentPath = usePathname();
 
   return (
-    <nav className=" fixed sm:relative mx-auto top-0 left-0 right-0 z-10 p-4 sm:p-0 sm:pt-16 sm:px-16 sm:border-0 border border-[#33353F] sm:bg-transparent bg-neutral-900 bg-opacity-100">
+    <nav className=" fixed sm:relative mx-auto top-0 left-0 right-0 z-10 p-8 sm:p-0 sm:pt-16 sm:px-16 sm:border-0 border border-[#33353F] sm:bg-transparent bg-neutral-900 bg-opacity-100">
       <Flex justify="between">
         <Flex align="center" gap="3">
-          <Link href="/">
-            <ImEmbed2 />
-          </Link>
+          <Magnetic>
+            <Link href="/">
+              <Image src={logo} alt="logo" width={32} height={30} />
+            </Link>
+          </Magnetic>
         </Flex>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (

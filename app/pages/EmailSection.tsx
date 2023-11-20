@@ -66,15 +66,12 @@ const EmailSection: React.FC = () => {
     target: container,
     offset: ["start end", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
 
-  const { pending } = useFormStatus();
+  const y = useTransform(scrollYProgress, [0, 1], [-500, 1]);
 
   return (
     <motion.div style={{ y }} ref={container}>
-      <div className="relative  bg-neutral-900">
+      <div className="relative  bg-neutral-950">
         <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
           <Reveal>
             <Text className="uppercase text-[var(--red-11)] text-2xl">
