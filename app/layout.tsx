@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo-white.ico" sizes="any" />
+        <link rel="icon" href="/icon.ico" sizes="any" />
         <body className="bg-neutral-900">
           <Theme appearance="dark" accentColor="red">
             <Toaster position="top-center" />
