@@ -59,7 +59,7 @@ const HorizontalScrollCarousel = () => {
 
   const motionStyle: MotionStyle = { x };
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
+    <section ref={targetRef} className="relative h-[300vh] bg-transparent">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={motionStyle} className="flex gap-4">
           {cards.map((card) => {
@@ -75,7 +75,7 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[400px] sm:h-[450px] w-[300px] sm:w-[350px] rounded-xl overflow-hidden bg-[var(--red-6)]"
+      className="group relative h-[400px] sm:h-[450px] w-[300px] sm:w-[350px] rounded-xl overflow-hidden bg-gradient-to-br from-[var(--red-9)] to-[var(--red-6)]"
     >
       <NextCard className="py-4 ">
         <CardHeader className="pb-0 pt-2 px-4  items-start justify-between ">
@@ -101,10 +101,10 @@ const Card = ({ card }: { card: CardType }) => {
           </div>
         </CardHeader>
         <Link href={card.href} target="_blank">
-          <CardBody className="overflow-visible p-4">
+          <CardBody className="overflow-visible p-8 ">
             <Image
               alt={card.title}
-              className="object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+              className="object-cover rounded-xl transition-transform duration-300 hover:-translate-y-2"
               src={card.url}
               width={300}
               height={300}
@@ -113,26 +113,6 @@ const Card = ({ card }: { card: CardType }) => {
         </Link>
       </NextCard>
     </div>
-    // <div
-    //   key={card.id}
-    //   className="group relative h-[300px] w-[300px] sm:h-[450px] sm:w-[450px] overflow-hidden bg-[var(--red-10)]"
-    // >
-    //   <Link href={card.href} target="_blank">
-    //     <div
-    //       style={{
-    //         backgroundImage: `url(${card.url})`,
-    //         backgroundSize: "cover",
-    //         backgroundPosition: "center",
-    //       }}
-    //       className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-    //     ></div>
-    //     <div className="absolute inset-0  z-10 grid place-content-center">
-    //       <p className=" p-8 text-2xl  font-medium  uppercase text-[var(--red-11)] bg-[var(--red-5)]">
-    //         {card.title}
-    //       </p>
-    //     </div>
-    //   </Link>
-    // </div>
   );
 };
 

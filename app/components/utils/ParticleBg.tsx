@@ -38,7 +38,7 @@ const ParticleBg = () => {
                 mode: "push",
               },
               onHover: {
-                enable: true,
+                enable: false,
                 mode: "repulse",
               },
               resize: true,
@@ -55,13 +55,13 @@ const ParticleBg = () => {
           },
           particles: {
             color: {
-              value: "#ffffff18",
+              value: "#ff9592",
             },
             links: {
-              color: "#ffffff67",
-              distance: 150,
+              color: "#ffd1d9",
+              distance: 120,
               enable: true,
-              opacity: 0.5,
+              opacity: 0.2,
               width: 1,
             },
             move: {
@@ -71,7 +71,7 @@ const ParticleBg = () => {
                 default: "bounce",
               },
               random: false,
-              speed: 1,
+              speed: 0.5,
               straight: false,
             },
             number: {
@@ -79,10 +79,10 @@ const ParticleBg = () => {
                 enable: true,
                 area: 1200,
               },
-              value: 80,
+              value: 250,
             },
             opacity: {
-              value: 0.1,
+              value: 0.05,
             },
             shape: {
               type: "circle",

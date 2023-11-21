@@ -7,6 +7,7 @@ import { FaGithub, FaInstagram } from "react-icons/fa";
 import Reveal from "../components/utils/Reveal";
 import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
+import Magnetic from "../components/utils/Magnetic";
 
 const Hero = () => {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -69,7 +70,7 @@ const Hero = () => {
           <div className="relative pb-8 sm:pb-0 ">
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full sm:mr-4 mr-0 bg-[var(--red-7)] hover:bg-[var(--red-8)] text-[var(--red-11)] sm:text-base text-sm"
+              className="px-6 inline-block py-3 w-full sm:w-fit rounded-xl sm:mr-4 mr-0 bg-[var(--red-7)] hover:bg-[var(--red-8)] text-[var(--red-11)] sm:text-base text-sm font-medium"
             >
               Hire Me
             </Link>
@@ -91,15 +92,19 @@ const Hero = () => {
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
           {renderText && (
-            <div className="rounded-full bg-[#1818187e] w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
-              <Image
-                src="/images/hero-img.png"
-                alt="hero image"
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                width={300}
-                height={300}
-              />
-            </div>
+            <Magnetic>
+              <div className="rounded-full  w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
+                <Link href="/#about">
+                  <Image
+                    src="/images/hero-img.png"
+                    alt="hero image"
+                    className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    width={300}
+                    height={300}
+                  />
+                </Link>
+              </div>
+            </Magnetic>
           )}
         </motion.div>
       </div>

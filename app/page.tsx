@@ -41,7 +41,7 @@ export default function Home() {
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}
       </AnimatePresence>
-      {/* <ParticleBg /> */}
+      <ParticleBg />
       <Container className=" mt-24 mx-auto px-12 py-4">
         <Hero />
       </Container>

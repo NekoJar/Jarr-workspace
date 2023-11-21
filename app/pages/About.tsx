@@ -12,6 +12,7 @@ import Reveal from "../components/utils/Reveal";
 import { Container, Text } from "@radix-ui/themes";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Magnetic from "../components/utils/Magnetic";
+import CustomSlide from "../components/slide";
 
 const TAB_DATA = [
   {
@@ -94,6 +95,12 @@ const AboutSection = () => {
       <Container>
         <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-16 space-y-8 sm:space-y-0 ">
           <Magnetic>
+            {/* <CustomSlide
+              src="/images/about-img.png"
+              width={500}
+              height={500}
+              className="relative rounded-xl"
+            /> */}
             <Image
               src="/images/about-img.png"
               width={500}
