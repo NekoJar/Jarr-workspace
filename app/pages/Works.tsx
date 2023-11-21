@@ -36,7 +36,7 @@ const Works = () => {
   }, []); // Empty dependency array means this effect will only run once on mount
 
   // Your logic for rendering based on windowWidth
-  const renderText = windowWidth >= 768;
+  const renderText = windowWidth < 768;
 
   return (
     <>
@@ -49,11 +49,10 @@ const Works = () => {
         </Reveal>
       </div>
       <HorizontalCard />
-      {renderText && (
-        <motion.div style={{ height }} className="relative mt-[100px]">
-          <div className="absolute z-1 h-[1550%] w-[100%] left-[-10%] bg-neutral-900 shadow-2xl rounded-b-full"></div>
-        </motion.div>
-      )}
+
+      <motion.div style={{ height }} className="relative mt-[100px]">
+        <div className="absolute z-1 h-[1550%] w-[100%] left-[-10%] bg-neutral-900 shadow-2xl rounded-b-full"></div>
+      </motion.div>
     </>
   );
 };
