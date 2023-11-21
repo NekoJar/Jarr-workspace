@@ -21,12 +21,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-neutral-900">
-        <Theme appearance="dark" accentColor="red">
-          <Toaster position="top-center" />
-          <main>{children}</main>
-        </Theme>
-      </body>
+      <head>
+        <link rel="icon" href="/logo-white.ico" sizes="any" />
+        <body className="bg-neutral-900">
+          <Theme appearance="dark" accentColor="red">
+            <Toaster position="top-center" />
+            <main>{children}</main>
+          </Theme>
+        </body>
+      </head>
     </html>
   );
 }
