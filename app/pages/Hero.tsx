@@ -63,8 +63,8 @@ const Hero = () => {
           </div>
           <p className="text-[#ADB7BE] text-s sm:text-m mb-6 lg:text-lg">
             I am an undergraduate student at the School of Computing at Telkom
-            University. I specialize in NextJS, TypeScript, TailwindCSS, and
-            more.
+            University. I specialize in creating Portfolio, E-Commerce, and
+            Dashboard web applications
           </p>
           <div className="relative pb-8 sm:pb-0 ">
             <Link
@@ -91,7 +91,7 @@ const Hero = () => {
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
           {renderText && (
-            <div className="rounded-full border-[6px] animate-pulse bg-[#1818187e] w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
+            <div className="rounded-full bg-[#1818187e] w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
               <Image
                 src="/images/hero-img.png"
                 alt="hero image"

@@ -18,13 +18,11 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="list-disc pl-2">
-        <li>Next.js</li>
-        <li>TypeScript</li>
-        <li>Tailwind CSS</li>
-        <li>Supabase</li>
-        <li>Node.js</li>
-        <li>React</li>
+      <ul className="list-disc pl-2 text-sm lg:text-base">
+        <li>Create a Portolio Website</li>
+        <li>Create an E-Commerce Website</li>
+        <li>Create a Dashboard Website</li>
+        <li>Convert a Page Router into an App Router in Next.js</li>
       </ul>
     ),
   },
@@ -32,23 +30,23 @@ const TAB_DATA = [
     title: "Education",
     id: "education",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-2 text-sm lg:text-base">
         <li>Telkom University, Indonesia</li>
       </ul>
     ),
   },
+  {
+    title: "Hobbies",
+    id: "hobbies",
+    content: (
+      <ul className="list-disc pl-2 text-sm lg:text-base">
+        <li>Drawing</li>
+        <li>Cosplaying</li>
+        <li>Playing video games</li>
+      </ul>
+    ),
+  },
 ];
-//   {
-//     title: "Certifications",
-//     id: "certifications",
-//     content: (
-//       <ul className="list-disc pl-2">
-//         <li>AWS Cloud Practitioner</li>
-//         <li>Google Professional Cloud Developer</li>
-//       </ul>
-//     ),
-//   },
-// ];
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
@@ -94,25 +92,25 @@ const AboutSection = () => {
         </div>
       )}
       <Container>
-        <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-8 xl:gap-16 sm:py-36 xl:px-16 sm:px-4">
+        <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-16 space-y-8 sm:space-y-0 ">
           <Magnetic>
             <Image
               src="/images/about-img.png"
               width={500}
               height={500}
               alt="about-img"
-              className="relative"
+              className="relative rounded-xl"
             />
           </Magnetic>
           <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-[var(--red-9)]  mb-4">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-[var(--red-11)]  mb-4">
               About Me
             </h2>
-            <p className="text-base lg:text-lg">
+            <p className="text-base sm:text-sm lg:text-lg">
               I am a full stack web developer with a passion for creating
               interactive and responsive web applications. I have experience
               working with JavaScript, TypeScript, React, Redux, Node.js,
-              Firebase, Supabase, PostgreSQL, MySql, Next.js, HTML, CSS, and
+              Firebase, Supabase, PostgreSQL, MySql, Next.js, Tailwind CSS, and
               Git. I am a quick learner and I am always looking to expand my
               knowledge and skill set. I am a team player and I am excited to
               work with others to create amazing applications.
@@ -132,13 +130,13 @@ const AboutSection = () => {
                 {" "}
                 Education{" "}
               </TabButton>
-              {/* <TabButton
-                selectTab={() => handleTabChange("certifications")}
-                active={tab === "certifications"}
+              <TabButton
+                selectTab={() => handleTabChange("hobbies")}
+                active={tab === "hobbies"}
               >
                 {" "}
-                Certifications{" "}
-              </TabButton> */}
+                Hobbies{" "}
+              </TabButton>
             </div>
             <div className="mt-8">
               {TAB_DATA.find((t) => t.id === tab)!.content}
