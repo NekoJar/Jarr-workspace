@@ -20,10 +20,10 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2 text-sm lg:text-base">
-        <li>Create a Portolio Website</li>
-        <li>Create an E-Commerce Website</li>
-        <li>Create a Dashboard Website</li>
-        <li>Convert a Page Router into an App Router in Next.js</li>
+        <li>I can Create a Portolio Website</li>
+        <li>I can Create an E-Commerce Website</li>
+        <li>I can Create a Dashboard Website</li>
+        <li>I can Convert a Page Router into an App Router in Next.js</li>
       </ul>
     ),
   },
@@ -95,12 +95,6 @@ const AboutSection = () => {
       <Container>
         <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-16 space-y-8 sm:space-y-0 ">
           <Magnetic>
-            {/* <CustomSlide
-              src="/images/about-img.png"
-              width={500}
-              height={500}
-              className="relative rounded-xl"
-            /> */}
             <Image
               src="/images/about-img.png"
               width={500}

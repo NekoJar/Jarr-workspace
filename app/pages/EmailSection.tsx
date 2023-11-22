@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent, useRef } from "react";
+import React, { useState, SyntheticEvent, useRef, useEffect } from "react";
 import GithubIcon from "../../public/github-icon.svg";
 import LinkedinIcon from "../../public/linkedin-icon.svg";
 import InstagramIcon from "../../public/instagram-icon.svg";
@@ -13,53 +13,29 @@ import { useFormStatus } from "react-dom";
 import SubmitBtn from "./SubmitBtn";
 import { sendEmail } from "../api/send/sendEmail";
 
-// interface EmailData {
-//   email: string;
-//   subject: string;
-//   message: string;
-// }
-
 const EmailSection: React.FC = () => {
-  // const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
-  // const handleSubmit = async (e: SyntheticEvent) => {
-  //   e.preventDefault();
-  //   const target = e.target as typeof e.target & {
-  //     email: { value: string };
-  //     subject: { value: string };
-  //     message: { value: string };
-  //   };
+  useEffect(() => {
+    // Function to update window width
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-  //   const data: EmailData = {
-  //     email: target.email.value,
-  //     subject: target.subject.value,
-  //     message: target.message.value,
-  //   };
+    // Initial window width
+    setWindowWidth(window.innerWidth);
 
-  //   const JSONdata = JSON.stringify(data);
-  //   const endpoint = "/api/send";
+    // Event listener for window resize
+    window.addEventListener("resize", handleResize);
 
-  //   // Form the request for sending data to the server.
-  //   const options: RequestInit = {
-  //     // The method is POST because we are sending data.
-  //     method: "POST",
-  //     // Tell the server we're sending JSON.
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     // Body of the request is the JSON data we created above.
-  //     body: JSONdata,
-  //   };
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array means this effect will only run once on mount
 
-  //   const response = await fetch(endpoint, options);
-  //   const resData = await response.json();
-  //   console.log(resData);
-
-  //   if (response.status === 200) {
-  //     console.log("Message sent.");
-  //     setEmailSubmitted(true);
-  //   }
-  // };
+  // Your logic for rendering based on windowWidth
+  const renderText = windowWidth > 768;
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -70,7 +46,7 @@ const EmailSection: React.FC = () => {
   const y = useTransform(scrollYProgress, [0, 1], [-500, 1]);
 
   return (
-    <motion.div style={{ y }} ref={container}>
+    <div>
       <div className="relative  bg-neutral-950">
         <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
           <Reveal>
@@ -97,9 +73,7 @@ const EmailSection: React.FC = () => {
                 <Link href="https://github.com/NekoJar" target="_blank">
                   <Image src={GithubIcon} alt="Github Icon" />
                 </Link>
-                {/* <Link href="linkedin.com" target="_blank">
-                  <Image src={LinkedinIcon} alt="Linkedin Icon" />
-                </Link> */}
+
                 <Link
                   href="https://instagram.com/wrkspace.jarr"
                   target="_blank"
@@ -159,7 +133,7 @@ const EmailSection: React.FC = () => {
           </section>
         </Container>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
