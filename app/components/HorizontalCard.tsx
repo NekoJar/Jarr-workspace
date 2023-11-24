@@ -142,7 +142,7 @@ const cards: CardType[] = [
     url: "/images/project-2.png",
     title: "E-commerce App",
     id: 2,
-    href: "https://https://luxevibe.netlify.app/",
+    href: "https://luxevibe.netlify.app/",
     text: "LuxeVibe",
     github: "https://github.com/NekoJar/LuxeVibe",
     languages: ["Typescript", "React", "Firebase", "Stripe"],
@@ -165,5 +165,15 @@ const cards: CardType[] = [
     text: "Issue-trackr",
     github: "https://github.com/NekoJar/issue-trackr",
     languages: ["Typescript", "NextJS", "mySql", "Prisma"],
+  },
+
+  {
+    url: "/images/project-5.png",
+    title: "Dashboard App",
+    id: 5,
+    href: "https://github.com/NekoJar/wild-oasis",
+    text: "Wild-Oasis",
+    github: "https://github.com/NekoJar/wild-oasis",
+    languages: ["Javascript", "React", "Supabase", "React Query"],
   },
 ];
