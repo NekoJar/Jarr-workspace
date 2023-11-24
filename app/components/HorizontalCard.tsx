@@ -174,6 +174,6 @@ const cards: CardType[] = [
     href: "https://github.com/NekoJar/wild-oasis",
     text: "Wild-Oasis",
     github: "https://github.com/NekoJar/wild-oasis",
-    languages: ["Javascript", "React", "Supabase", "React Query"],
+    languages: ["Javascript", "React", "Supabase"],
   },
 ];
