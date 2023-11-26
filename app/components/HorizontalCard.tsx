@@ -159,7 +159,7 @@ const cards: CardType[] = [
 
   {
     url: "/images/project-4.png",
-    title: "Tracker App",
+    title: "Dashboard App",
     id: 4,
     href: "https://github.com/NekoJar/issue-trackr",
     text: "Issue-trackr",
@@ -171,7 +171,7 @@ const cards: CardType[] = [
     url: "/images/project-5.png",
     title: "Dashboard App",
     id: 5,
-    href: "https://github.com/NekoJar/wild-oasis",
+    href: "https://wild-oasis-inn.netlify.app/",
     text: "Wild-Oasis",
     github: "https://github.com/NekoJar/wild-oasis",
     languages: ["Javascript", "React", "Supabase"],
