@@ -55,9 +55,9 @@ const EmailSection: React.FC = () => {
             </Text>
           </Reveal>
         </div>
-        <Container>
+        <Container className="">
           <section
-            className="grid md:grid-cols-2 my-8 md:my-12 py-12 sm:py-24 gap-4 relative px-8 sm:px-8 lg:px-0 "
+            className="grid md:grid-cols-2 my-8 md:my-12 py-12 sm:py-24 gap-4 relative px-8 sm:px-8 lg:px-24 "
             id="contact"
           >
             <div>

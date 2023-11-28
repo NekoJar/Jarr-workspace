@@ -93,7 +93,7 @@ const AboutSection = () => {
         </div>
       )}
       <Container>
-        <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-16 space-y-8 sm:space-y-0 ">
+        <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-24 space-y-8 sm:space-y-0 ">
           <Magnetic>
             <Image
               src="/images/about-img.png"
@@ -116,6 +116,7 @@ const AboutSection = () => {
               knowledge and skill set. I am a team player and I am excited to
               work with others to create amazing applications.
             </p>
+
             <div className="flex flex-row justify-start mt-8">
               <TabButton
                 selectTab={() => handleTabChange("skills")}

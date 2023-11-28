@@ -15,6 +15,7 @@
     "@react-email/button": "0.0.11",
     "@react-email/components": "^0.0.11",
     "@react-email/html": "0.0.6",
+    "@studio-freight/lenis": "^1.0.28",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.4",
     "gsap": "^3.12.2",

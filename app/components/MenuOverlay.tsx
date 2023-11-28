@@ -1,5 +1,6 @@
 import React from "react";
 import NavLinks from "./NavLinks";
+import DarkModeToggle from "./DarkModeToggle";
 
 interface Link {
   label: string;

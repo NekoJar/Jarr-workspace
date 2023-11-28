@@ -6,6 +6,10 @@ import "./globals.css";
 import NavBar from "./NavBar";
 import { Container, Theme, ThemePanel } from "@radix-ui/themes";
 import { Toaster } from "react-hot-toast";
+import {
+  DarkModeProvider,
+  useDarkMode,
+} from "./components/context/DarkModeContext";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -23,13 +27,15 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="./icon.ico" sizes="any" />
-        <body className="bg-neutral-900">
-          <Theme appearance="dark" accentColor="red">
-            <Toaster position="top-center" />
-            <main>{children}</main>
-          </Theme>
-        </body>
       </head>
+      <body className="bg-neutral-900">
+        <DarkModeProvider>
+          {/* <Theme appearance={isDarkMode ? "dark" : "light"}> */}
+          <Toaster position="top-center" />
+          <main>{children}</main>
+          {/* </Theme> */}
+        </DarkModeProvider>
+      </body>
     </html>
   );
 }

@@ -12,6 +12,7 @@ import MenuOverlay from "./components/MenuOverlay";
 import Magnetic from "./components/utils/Magnetic";
 import logo from "../public/logo.svg";
 import Image from "next/image";
+import DarkModeToggle from "./components/DarkModeToggle";
 
 export const links = [
   { label: "About", href: "/#about" },
@@ -36,12 +37,17 @@ const NavBar = () => {
         </Flex>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
-            <button
-              onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
-            >
-              <Bars3Icon className="h-5 w-5" />
-            </button>
+            <div className="flex flex-row space-x-4">
+              <span className="text-3xl pt-2">
+                <DarkModeToggle />
+              </span>
+              <button
+                onClick={() => setNavbarOpen(true)}
+                className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+              >
+                <Bars3Icon className="h-5 w-5" />
+              </button>
+            </div>
           ) : (
             <button
               onClick={() => setNavbarOpen(false)}
@@ -69,6 +75,7 @@ const NavBar = () => {
                 </Magnetic>
               </li>
             ))}
+            <DarkModeToggle />
           </ul>
         </div>
       </Flex>
