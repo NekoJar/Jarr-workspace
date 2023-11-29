@@ -12,7 +12,7 @@ import Reveal from "../components/utils/Reveal";
 import { Container, Text } from "@radix-ui/themes";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Magnetic from "../components/utils/Magnetic";
-import CustomSlide from "../components/slide";
+
 import { useDarkMode } from "../components/context/DarkModeContext";
 
 const TAB_DATA = [
@@ -54,7 +54,6 @@ const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
   const { isDarkMode } = useDarkMode();
- 
 
   const handleTabChange = (id: String) => {
     startTransition(() => {
@@ -89,7 +88,7 @@ const AboutSection = () => {
       className={
         isDarkMode
           ? "text-white relative bg-neutral-950"
-          : "text-white relative bg-neutral-300"
+          : "text-white relative bg-neutral-200"
       }
       id="about"
     >
@@ -103,7 +102,7 @@ const AboutSection = () => {
         </div>
       )}
       <Container>
-        <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-52 space-y-8 sm:space-y-0 ">
+        <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-16 lg:px-52 space-y-8 sm:space-y-0 ">
           <Magnetic>
             <Image
               src="/images/about-img.png"

@@ -1,19 +1,17 @@
-import React, { useState, SyntheticEvent, useRef, useEffect } from "react";
-import GithubIcon from "../../public/github-icon.svg";
-import InstagramIcon from "../../public/instagram-icon.svg";
-import GithubIconBlack from "../../public/github-icon-blck.svg";
-import InstagramIconBlack from "../../public/instagram-icon-blck.svg";
-import LinkedinIcon from "../../public/linkedin-icon.svg";
-import Link from "next/link";
-import Image from "next/image";
-import Reveal from "../components/utils/Reveal";
 import { Container, Text } from "@radix-ui/themes";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
+import GithubIconBlack from "../../public/github-icon-blck.svg";
+import GithubIcon from "../../public/github-icon.svg";
+import InstagramIconBlack from "../../public/instagram-icon-blck.svg";
+import InstagramIcon from "../../public/instagram-icon.svg";
+import Reveal from "../components/utils/Reveal";
 
-import { useFormStatus } from "react-dom";
-import SubmitBtn from "./SubmitBtn";
 import { sendEmail } from "../api/send/sendEmail";
+import SubmitBtn from "../components/SubmitBtn";
 import { useDarkMode } from "../components/context/DarkModeContext";
 
 const EmailSection: React.FC = () => {
@@ -53,7 +51,7 @@ const EmailSection: React.FC = () => {
     <div>
       <div
         className={
-          isDarkMode ? "relative bg-neutral-950" : "relative bg-neutral-300"
+          isDarkMode ? "relative bg-neutral-950" : "relative bg-neutral-200"
         }
       >
         <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">

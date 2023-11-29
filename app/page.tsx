@@ -1,23 +1,16 @@
 "use client";
 
-import { Container, Flex, Heading } from "@radix-ui/themes";
-import Hero from "./pages/Hero";
-import ParticleBg from "./components/utils/ParticleBg";
-import {
-  motion,
-  useTransform,
-  useScroll,
-  AnimatePresence,
-} from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import HorizontalCard from "./components/HorizontalCard";
-import Works from "./pages/Works";
-import AboutSection from "./pages/About";
-import AchievementsSection from "./pages/AchievementsSection";
-import Footer from "./pages/Footer";
-import EmailSection from "./pages/EmailSection";
-import Preloader from "./components/Preloader";
+import { Container } from "@radix-ui/themes";
+import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
+import ParticleBg from "./components/utils/ParticleBg";
+import Preloader from "./components/utils/Preloader";
+import AboutSection from "./pages/About";
+import EmailSection from "./pages/EmailSection";
+import Footer from "./pages/Footer";
+import Hero from "./pages/Hero";
+import Works from "./pages/Works";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

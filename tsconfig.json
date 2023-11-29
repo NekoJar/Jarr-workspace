@@ -29,10 +29,10 @@
     ".next/types/**/*.ts",
     "app/api/send/route.js",
     "app/components/utils/anim.ts",
-    "app/components/Preloader.tsx",
+    "app/components/utils/Preloader.tsx",
     "app/components/context/DarkModeContext.jsx",
     "app/components/DarkModeToggle.jsx",
-    "app/hooks/useLocalStorageState.ts"
+    "app/components/hooks/useLocalStorageState.ts"
   ],
   "exclude": ["node_modules"]
 }
