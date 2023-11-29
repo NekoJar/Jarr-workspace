@@ -28,14 +28,14 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="./icon.ico" sizes="any" />
       </head>
-      <body className="bg-[var(--bg-primary)]">
-        <DarkModeProvider>
+      <DarkModeProvider>
+        <body className="bg-[var(--bg-primary)]">
           {/* <Theme appearance={isDarkMode ? "dark" : "light"}> */}
           <Toaster position="top-center" />
           <main>{children}</main>
           {/* </Theme> */}
-        </DarkModeProvider>
-      </body>
+        </body>
+      </DarkModeProvider>
     </html>
   );
 }

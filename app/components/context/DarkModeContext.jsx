@@ -5,14 +5,7 @@ import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 const DarkModeContext = createContext();
 
 function DarkModeProvider({ children }) {
-  const isDarkModeInitial =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const [isDarkMode, setIsDarkMode] = useLocalStorageState(
-    isDarkModeInitial,
-    "isDarkMode"
-  );
+  const [isDarkMode, setIsDarkMode] = useLocalStorageState(true, "isDarkMode");
 
   useEffect(
     function () {

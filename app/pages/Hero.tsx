@@ -35,7 +35,7 @@ const Hero = () => {
   // Your logic for rendering based on windowWidth
   const renderText = windowWidth > 768;
   return (
-    <section className="sm:pb-48 mx-0 md:mx-24 pb-20 pt-24 sm:pt-0  z-20">
+    <section className="sm:pb-48 mx-0 md:mx-20 pb-20 pt-24 sm:pt-0  z-20">
       <div className="grid grid-cols-1 sm:grid-cols-12  ">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -107,7 +107,7 @@ const Hero = () => {
         >
           {renderText && (
             <Magnetic>
-              <div className="rounded-full  w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ">
+              <div className="rounded-full  w-[290px] h-[290px] lg:w-[350px] lg:h-[350px] relative ml-16">
                 <Link href="/#about">
                   <Image
                     src="/images/hero-img.png"

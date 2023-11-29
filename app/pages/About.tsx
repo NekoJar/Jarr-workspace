@@ -54,6 +54,7 @@ const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
   const { isDarkMode } = useDarkMode();
+ 
 
   const handleTabChange = (id: String) => {
     startTransition(() => {

@@ -31,7 +31,8 @@
     "app/components/utils/anim.ts",
     "app/components/Preloader.tsx",
     "app/components/context/DarkModeContext.jsx",
-    "app/components/DarkModeToggle.jsx"
+    "app/components/DarkModeToggle.jsx",
+    "app/hooks/useLocalStorageState.ts"
   ],
   "exclude": ["node_modules"]
 }
