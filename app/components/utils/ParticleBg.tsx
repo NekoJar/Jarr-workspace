@@ -4,8 +4,10 @@ import React, { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Engine, Container } from "tsparticles-engine";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const ParticleBg = () => {
+  const { isDarkMode } = useDarkMode();
   const particlesInit = useCallback(async (engine: Engine) => {
     console.log(engine);
 
@@ -55,10 +57,10 @@ const ParticleBg = () => {
           },
           particles: {
             color: {
-              value: "#ff9592",
+              value: `${isDarkMode ? "#ff9592" : "#ce2c31"}`,
             },
             links: {
-              color: "#ffd1d9",
+              color: `${isDarkMode ? "#ffd1d9" : "#ce2c31"}`,
               distance: 120,
               enable: true,
               opacity: 0.2,

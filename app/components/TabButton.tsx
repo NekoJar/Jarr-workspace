@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
+import { useDarkMode } from "./context/DarkModeContext";
 
 interface TabButtonProps {
   active: boolean;
@@ -17,9 +18,10 @@ const TabButton: React.FC<TabButtonProps> = ({
   selectTab,
   children,
 }) => {
+  const { isDarkMode } = useDarkMode();
   const buttonClasses = active
-    ? "text-white"
-    : "text-transparent bg-clip-text bg-gradient-to-br from-primary-100 to-secondary-100 ";
+    ? `${isDarkMode ? "text-white" : "text-[var(--red-8)]"}`
+    : "text-[var(--red-9)] ";
 
   return (
     <button onClick={selectTab}>
@@ -31,7 +33,7 @@ const TabButton: React.FC<TabButtonProps> = ({
       <motion.div
         animate={active ? "active" : "default"}
         variants={variants}
-        className="h-1 bg-gradient-to-br from-primary-500 to-secondary-500  mt-2 mr-3"
+        className="h-1 bg-[var(--red-10)]  mt-2 mr-3"
       ></motion.div>
     </button>
   );

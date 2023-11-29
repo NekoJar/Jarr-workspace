@@ -1,7 +1,9 @@
 import React, { useState, SyntheticEvent, useRef, useEffect } from "react";
 import GithubIcon from "../../public/github-icon.svg";
-import LinkedinIcon from "../../public/linkedin-icon.svg";
 import InstagramIcon from "../../public/instagram-icon.svg";
+import GithubIconBlack from "../../public/github-icon-blck.svg";
+import InstagramIconBlack from "../../public/instagram-icon-blck.svg";
+import LinkedinIcon from "../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "../components/utils/Reveal";
@@ -12,9 +14,11 @@ import toast from "react-hot-toast";
 import { useFormStatus } from "react-dom";
 import SubmitBtn from "./SubmitBtn";
 import { sendEmail } from "../api/send/sendEmail";
+import { useDarkMode } from "../components/context/DarkModeContext";
 
 const EmailSection: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(0);
+  const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
     // Function to update window width
@@ -47,7 +51,11 @@ const EmailSection: React.FC = () => {
 
   return (
     <div>
-      <div className="relative  bg-neutral-950">
+      <div
+        className={
+          isDarkMode ? "relative bg-neutral-950" : "relative bg-neutral-300"
+        }
+      >
         <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
           <Reveal>
             <Text className="uppercase text-[var(--red-11)] text-2xl">
@@ -57,28 +65,40 @@ const EmailSection: React.FC = () => {
         </div>
         <Container className="">
           <section
-            className="grid md:grid-cols-2 my-8 md:my-12 py-12 sm:py-24 gap-4 relative px-8 sm:px-8 lg:px-24 "
+            className="grid md:grid-cols-2 my-8 md:my-12 py-12 sm:py-24 gap-4 relative px-8 sm:px-8 lg:px-32 "
             id="contact"
           >
             <div>
-              <h5 className="text-xl font-bold text-white my-2">
+              <Text className="text-xl sm:text-4xl font-bold text-[var(--red-11)] my-5">
                 Let&apos;s Connect
-              </h5>
-              <p className="text-[#ADB7BE] mb-4 max-w-md">
+              </Text>
+              <p
+                className={
+                  isDarkMode
+                    ? "text-neutral-400 my-4 max-w-md"
+                    : "text-neutral-600 my-4 max-w-md"
+                }
+              >
                 I&apos;m currently looking for new opportunities, my inbox is
                 always open. Whether you have a question or just want to say hi,
                 I&apos;ll try my best to get back to you!
               </p>
               <div className="socials flex flex-row gap-2">
                 <Link href="https://github.com/NekoJar" target="_blank">
-                  <Image src={GithubIcon} alt="Github Icon" />
+                  <Image
+                    src={isDarkMode ? GithubIcon : GithubIconBlack}
+                    alt="Github Icon"
+                  />
                 </Link>
 
                 <Link
                   href="https://instagram.com/wrkspace.jarr"
                   target="_blank"
                 >
-                  <Image src={InstagramIcon} alt="Instagram Icon" />
+                  <Image
+                    src={isDarkMode ? InstagramIcon : InstagramIconBlack}
+                    alt="Instagram Icon"
+                  />
                 </Link>
               </div>
             </div>
@@ -99,12 +119,12 @@ const EmailSection: React.FC = () => {
                 <div className="mb-6">
                   <label
                     htmlFor="email"
-                    className="text-white block mb-2 text-sm font-medium"
+                    className="text-[var(--text-primary)] block mb-2 text-sm font-medium"
                   >
                     Your email
                   </label>
                   <input
-                    className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 transition-all"
+                    className="bg-[var(--email-box)] border border-[#33353F] placeholder-[#9CA2A9] text-[var(--text-primary)] text-sm rounded-lg block w-full p-2.5 transition-all"
                     name="senderEmail"
                     type="email"
                     required
@@ -115,12 +135,12 @@ const EmailSection: React.FC = () => {
                 <div className="mb-6">
                   <label
                     htmlFor="messages"
-                    className="text-white block text-sm mb-2 font-medium"
+                    className="text-[var(--text-primary)] block text-sm mb-2 font-medium"
                   >
                     Your messages
                   </label>
                   <textarea
-                    className="h-52  bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 transition-all"
+                    className="h-52  bg-[var(--email-box)] border border-[#33353F] placeholder-[#9CA2A9] text-[var(--text-primary)] text-sm rounded-lg block w-full p-2.5 transition-all"
                     name="message"
                     placeholder="Your message"
                     required

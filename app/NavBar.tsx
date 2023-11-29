@@ -13,6 +13,7 @@ import Magnetic from "./components/utils/Magnetic";
 import logo from "../public/logo.svg";
 import Image from "next/image";
 import DarkModeToggle from "./components/DarkModeToggle";
+import { useDarkMode } from "./components/context/DarkModeContext";
 
 export const links = [
   { label: "About", href: "/#about" },
@@ -22,11 +23,12 @@ export const links = [
 
 const NavBar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const { isDarkMode } = useDarkMode();
 
   const currentPath = usePathname();
 
   return (
-    <nav className=" fixed sm:relative mx-auto top-0 left-0 right-0 z-10 p-8 sm:p-0 sm:pt-16 sm:px-16 sm:border-0 border border-[#33353F] sm:bg-transparent bg-neutral-900 bg-opacity-100">
+    <nav className=" fixed sm:relative mx-auto top-0 left-0 right-0 z-10 p-8 sm:p-0 sm:pt-16 sm:px-16 sm:border-0 border border-[var(--bg-primary)] sm:bg-transparent bg-[var(--navbar-primary)] bg-opacity-100">
       <Flex justify="between">
         <Flex align="center" gap="3">
           <Magnetic>
@@ -38,12 +40,16 @@ const NavBar = () => {
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
             <div className="flex flex-row space-x-4">
-              <span className="text-3xl pt-2">
+              <span className="text-3xl pt-1 ">
                 <DarkModeToggle />
               </span>
               <button
                 onClick={() => setNavbarOpen(true)}
-                className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+                className={
+                  isDarkMode
+                    ? "text-neutral-300 border-neutral-300 hover:text-red-200 transition-colors flex items-center px-3 py-2 border rounded"
+                    : "text-neutral-700 border-neutral-700 hover:text-red-600 transition-colors flex items-center px-3 py-2 border rounded"
+                }
               >
                 <Bars3Icon className="h-5 w-5" />
               </button>
@@ -64,18 +70,20 @@ const NavBar = () => {
                 <Magnetic>
                   <Link
                     href={link.href}
-                    className={classNames({
-                      "!text-red-400": link.href === currentPath,
-                      "nav-link": true,
-                      block: true,
-                    })}
+                    className={
+                      isDarkMode
+                        ? "text-neutral-300 hover:text-red-200 transition-colors block"
+                        : "text-neutral-700 hover:text-red-600 transition-colors block"
+                    }
                   >
                     {link.label}
                   </Link>
                 </Magnetic>
               </li>
             ))}
-            <DarkModeToggle />
+            <Magnetic>
+              <DarkModeToggle />
+            </Magnetic>
           </ul>
         </div>
       </Flex>

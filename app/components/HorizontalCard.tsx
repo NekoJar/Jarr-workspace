@@ -80,7 +80,7 @@ const Card = ({ card }: { card: CardType }) => {
       <NextCard className="py-4 ">
         <CardHeader className="pb-0 pt-2 px-4  items-start justify-between ">
           <div className="flex-col">
-            <p className="text-tiny uppercase font-bold text-white">
+            <p className="text-tiny uppercase font-bold text-[var(--text-primary)]">
               {card.title}
             </p>
             <h4 className="font-bold text-large text-[var(--red-12)]">
@@ -94,7 +94,7 @@ const Card = ({ card }: { card: CardType }) => {
             <Link
               href={card.github}
               target="_blank"
-              className="text-3xl hover:text-neutral-900 transition-colors duration-300"
+              className="text-3xl text-[var(--text-primary)] hover:text-neutral-900 transition-colors duration-300"
             >
               <FaGithub />
             </Link>

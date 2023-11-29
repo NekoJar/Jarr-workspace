@@ -28,7 +28,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="./icon.ico" sizes="any" />
       </head>
-      <body className="bg-neutral-900">
+      <body className="bg-[var(--bg-primary)]">
         <DarkModeProvider>
           {/* <Theme appearance={isDarkMode ? "dark" : "light"}> */}
           <Toaster position="top-center" />

@@ -8,9 +8,11 @@ import Reveal from "../components/utils/Reveal";
 import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 import Magnetic from "../components/utils/Magnetic";
+import { useDarkMode } from "../components/context/DarkModeContext";
 
 const Hero = () => {
   const [windowWidth, setWindowWidth] = useState(0);
+  const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
     // Function to update window width
@@ -42,7 +44,13 @@ const Hero = () => {
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
           <div className="relative mb-4  lg:leading-normal ">
-            <Text className="text-white bg-clip-text text-md sm:text-xl font-extrabold ">
+            <Text
+              className={
+                isDarkMode
+                  ? "text-white bg-clip-text text-md sm:text-xl font-extrabold "
+                  : "text-black bg-clip-text text-md sm:text-xl font-extrabold "
+              }
+            >
               Hello, I&apos;m{" "}
             </Text>
             <br></br>
@@ -62,7 +70,13 @@ const Hero = () => {
               />
             </h1>
           </div>
-          <p className="text-[#ADB7BE] text-s sm:text-m mb-6 lg:text-lg">
+          <p
+            className={
+              isDarkMode
+                ? "text-neutral-400 text-s sm:text-m mb-6 lg:text-lg"
+                : "text-neutral-700 text-s sm:text-m mb-6 lg:text-lg"
+            }
+          >
             I am an undergraduate student at the School of Computing at Telkom
             University. I specialize in creating Portfolio, E-Commerce, and
             Dashboard web applications

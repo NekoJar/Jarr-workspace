@@ -13,13 +13,14 @@ import { Container, Text } from "@radix-ui/themes";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Magnetic from "../components/utils/Magnetic";
 import CustomSlide from "../components/slide";
+import { useDarkMode } from "../components/context/DarkModeContext";
 
 const TAB_DATA = [
   {
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="list-disc pl-2 text-sm lg:text-base">
+      <ul className="list-disc pl-2 text-sm lg:text-base text-[var(--ul-primary)]">
         <li>I can Create a Portolio Website</li>
         <li>I can Create an E-Commerce Website</li>
         <li>I can Create a Dashboard Website</li>
@@ -31,7 +32,7 @@ const TAB_DATA = [
     title: "Education",
     id: "education",
     content: (
-      <ul className="list-disc pl-2 text-sm lg:text-base">
+      <ul className="list-disc pl-2 text-sm lg:text-base text-[var(--ul-primary)]">
         <li>Telkom University, Indonesia</li>
       </ul>
     ),
@@ -40,7 +41,7 @@ const TAB_DATA = [
     title: "Hobbies",
     id: "hobbies",
     content: (
-      <ul className="list-disc pl-2 text-sm lg:text-base">
+      <ul className="list-disc pl-2 text-sm lg:text-base text-[var(--ul-primary)]">
         <li>Drawing</li>
         <li>Cosplaying</li>
         <li>Playing video games</li>
@@ -52,6 +53,7 @@ const TAB_DATA = [
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
+  const { isDarkMode } = useDarkMode();
 
   const handleTabChange = (id: String) => {
     startTransition(() => {
@@ -82,7 +84,14 @@ const AboutSection = () => {
   // Your logic for rendering based on windowWidth
   const renderText = windowWidth <= 600;
   return (
-    <section className="text-white relative bg-neutral-950" id="about">
+    <section
+      className={
+        isDarkMode
+          ? "text-white relative bg-neutral-950"
+          : "text-white relative bg-neutral-300"
+      }
+      id="about"
+    >
       {renderText && (
         <div className="relative flex h-24 items-center justify-center bg-[var(--red-5)]">
           <Reveal>
@@ -93,7 +102,7 @@ const AboutSection = () => {
         </div>
       )}
       <Container>
-        <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-24 space-y-8 sm:space-y-0 ">
+        <div className="md:grid md:grid-cols-2 gap-8 items-center  px-8 xl:gap-16  py-28 sm:py-36 sm:px-8 md:px-52 space-y-8 sm:space-y-0 ">
           <Magnetic>
             <Image
               src="/images/about-img.png"
@@ -107,7 +116,13 @@ const AboutSection = () => {
             <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-[var(--red-11)]  mb-4">
               About Me
             </h2>
-            <p className="text-base sm:text-sm lg:text-lg">
+            <p
+              className={
+                isDarkMode
+                  ? "text-white text-base sm:text-sm lg:text-lg"
+                  : "text-neutral-700 text-base sm:text-sm lg:text-lg"
+              }
+            >
               I am a full stack web developer with a passion for creating
               interactive and responsive web applications. I have experience
               working with JavaScript, TypeScript, React, Redux, Node.js,
@@ -117,7 +132,7 @@ const AboutSection = () => {
               work with others to create amazing applications.
             </p>
 
-            <div className="flex flex-row justify-start mt-8">
+            <div className="flex flex-row justify-start mt-8  ">
               <TabButton
                 selectTab={() => handleTabChange("skills")}
                 active={tab === "skills"}

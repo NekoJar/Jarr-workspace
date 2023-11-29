@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
+  --bg-primary: #d4d4d4;
+  --navbar-primary: #e5e5e5;
+  --text-primary: #000;
+  --ul-primary: #404040;
+  --email-box: #dedede;
   --red-1: #fffcfc;
   --red-2: #fff7f7;
   --red-3: #feebec;
@@ -15,7 +19,7 @@
   --red-9: #e5484d;
   --red-10: #dc3e42;
   --red-11: #ce2c31;
-  --red-12: #641723;
+  --red-12: #ce2c31;
   --red-a1: #ff000003;
   --red-a2: #ff000008;
   --red-a3: #f3000d14;
@@ -30,7 +34,11 @@
   --red-a12: #55000de8;
 }
 .dark-mode {
-  --foreground-rgb: 255, 255, 255;
+  --bg-primary: #0a0a0a;
+  --navbar-primary: #09090b;
+  --text-primary: #fff;
+  --ul-primary: #fff;
+  --email-box: #18191e;
   --red-1: #191111;
   --red-2: #201314;
   --red-3: #3b1219;
@@ -58,10 +66,10 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   /* Hide scrollbars on desktop */
   overflow: hidden;
   cursor: wait;
+  transition: color 0.3s, background-color 0.3s;
 }
 
 @media only screen and (max-width: 768px) {
