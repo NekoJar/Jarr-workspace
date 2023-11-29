@@ -81,9 +81,11 @@ const NavBar = () => {
                 </Magnetic>
               </li>
             ))}
-            <Magnetic>
-              <DarkModeToggle />
-            </Magnetic>
+            <div className="text-xl">
+              <Magnetic>
+                <DarkModeToggle />
+              </Magnetic>
+            </div>
           </ul>
         </div>
       </Flex>
