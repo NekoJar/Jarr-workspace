@@ -20,7 +20,7 @@ const TabButton: React.FC<TabButtonProps> = ({
 }) => {
   const { isDarkMode } = useDarkMode();
   const buttonClasses = active
-    ? `${isDarkMode ? "text-white" : "text-[var(--red-8)]"}`
+    ? `${isDarkMode ? "text-[var(--red-12)]" : "text-[var(--red-8)]"}`
     : "text-[var(--red-9)] ";
 
   return (

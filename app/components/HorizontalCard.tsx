@@ -75,7 +75,7 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[400px] sm:h-[450px] w-[300px] sm:w-[350px] rounded-xl overflow-hidden bg-gradient-to-br from-[var(--red-9)] to-[var(--red-6)]"
+      className="group relative h-[420px] sm:h-[490px] w-[300px] sm:w-[400px] rounded-xl overflow-hidden bg-gradient-to-br from-[var(--red-9)] to-[var(--red-6)]"
     >
       <NextCard className="py-4 ">
         <CardHeader className="pb-0 pt-2 px-4  items-start justify-between ">
@@ -104,7 +104,7 @@ const Card = ({ card }: { card: CardType }) => {
           <CardBody className="overflow-visible p-8 ">
             <Image
               alt={card.title}
-              className="object-cover rounded-xl transition-transform duration-300 hover:-translate-y-2"
+              className="object-contain rounded-xl transition-transform duration-300 hover:-translate-y-2"
               src={card.url}
               width={300}
               height={300}

@@ -30,10 +30,8 @@ export default function RootLayout({
       </head>
       <DarkModeProvider>
         <body className="bg-[var(--bg-primary)]">
-          {/* <Theme appearance={isDarkMode ? "dark" : "light"}> */}
           <Toaster position="top-center" />
           <main>{children}</main>
-          {/* </Theme> */}
         </body>
       </DarkModeProvider>
     </html>

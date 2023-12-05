@@ -29,14 +29,14 @@ const NavBar = () => {
 
   return (
     <nav className=" fixed sm:relative mx-auto top-0 left-0 right-0 z-10 p-8 sm:p-0 sm:pt-16 sm:px-16 sm:border-0 border border-[var(--bg-primary)] sm:bg-transparent bg-[var(--navbar-primary)] bg-opacity-100">
-      <Flex justify="between">
-        <Flex align="center" gap="3">
+      <div className="flex justify-between">
+        <div className="flex items-center gap-3">
           <Magnetic>
             <Link href="/">
               <Image src={logo} alt="logo" width={32} height={30} />
             </Link>
           </Magnetic>
-        </Flex>
+        </div>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
             <div className="flex flex-row space-x-4">
@@ -97,7 +97,7 @@ const NavBar = () => {
             </div>
           </ul>
         </div>
-      </Flex>
+      </div>
       {navbarOpen ? <MenuOverlay links={links} /> : null}
     </nav>
   );
